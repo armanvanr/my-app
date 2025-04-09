@@ -1,4 +1,4 @@
-import { Delete, Send, Save } from '@mui/icons-material';
+import { Delete, Send, Save, Info } from '@mui/icons-material';
 import CustomButton from './components/custom-button';
 
 const buttonColors = ['primary', 'secondary', 'info', 'success', 'warning', 'error'] as const;
@@ -10,9 +10,9 @@ const tooltipPositions = ['top', 'bottom', 'left', 'right'] as const;
 function App() {
   return (
     <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '3rem' }}>
-      
+
       <section>
-        <h2>🎨 Button Colors</h2>
+        <h2>1️⃣ 🎨 Button Colors</h2>
         <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
           {buttonColors.map((color) => (
             <CustomButton
@@ -28,7 +28,7 @@ function App() {
       </section>
 
       <section>
-        <h2>📐 Button Sizes</h2>
+        <h2>2️⃣ 📐 Button Sizes</h2>
         <div style={{ display: 'flex', gap: '1rem' }}>
           {buttonSizes.map((size) => (
             <CustomButton
@@ -45,7 +45,7 @@ function App() {
       </section>
 
       <section>
-        <h2>🔠 Icon Sizes</h2>
+        <h2>3️⃣ 🔠 Icon Sizes</h2>
         <div style={{ display: 'flex', gap: '1rem' }}>
           {iconSizes.map((iconSize) => (
             <CustomButton
@@ -62,7 +62,7 @@ function App() {
       </section>
 
       <section>
-        <h2>↔️ Icon Positions</h2>
+        <h2>4️⃣ ↔️ Icon Positions</h2>
         <div style={{ display: 'flex', gap: '1rem' }}>
           {iconPositions.map((position) => (
             <CustomButton
@@ -78,7 +78,7 @@ function App() {
       </section>
 
       <section>
-        <h2>📍 Tooltip Positions</h2>
+        <h2>5️⃣ 💡 Tooltip Positions</h2>
         <div style={{ display: 'flex', gap: '1rem' }}>
           {tooltipPositions.map((pos) => (
             <CustomButton
@@ -92,6 +92,42 @@ function App() {
           ))}
         </div>
       </section>
+
+      <section>
+        <h2>6️⃣ 🛠 Use Without Icon</h2>
+        <div style={{ display: 'flex', gap: '1rem' }}>
+          <CustomButton
+            bgColor="warning"
+            buttonText="No Icon"
+            size="large"
+            tooltipText="No icon here!"
+          />
+          <CustomButton
+            bgColor="error"
+            buttonText="Text Only"
+            size="medium"
+          />
+        </div>
+      </section>
+
+      <section>
+        <h2>7️⃣ 🧠 Use Without Tooltip</h2>
+        <div style={{ display: 'flex', gap: '1rem' }}>
+          <CustomButton
+            bgColor="secondary"
+            buttonText="Icon Only"
+            icon={<Info />}
+            size="medium"
+          />
+          <CustomButton
+            bgColor="primary"
+            buttonText="Classic"
+            icon={<Save />}
+            size="small"
+          />
+        </div>
+      </section>
+
     </div>
   );
 }
