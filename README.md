@@ -1,54 +1,51 @@
-# React + TypeScript + Vite
+## 🔘 CustomButton Component
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A reusable, theme-aware button component built with **React** and **Material UI (MUI)**. Supports configurable background color, size, icons, and tooltips.
 
-Currently, two official plugins are available:
+### ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Theme-based background colors: `primary`, `secondary`, `info`, `success`, `warning`, `error`
+- Button sizes: `small`, `medium`, `large`
+- Optional icons with customizable size and position
+- Tooltip support on click with configurable position
 
-## Expanding the ESLint configuration
+### 🧩 Props
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+| Prop              | Type                                                                 | Default         | Description                             |
+|-------------------|----------------------------------------------------------------------|-----------------|-----------------------------------------|
+| `bgColor`         | `'primary'` \| `'secondary'` \| `'info'` \| `'success'` \| `'warning'` \| `'error'` | `'info'`        | Button color from MUI theme             |
+| `buttonText`      | `string`                                                             | —               | Button label text                       |
+| `icon`            | `React.ReactElement`                                                 | `undefined`     | Optional icon element                   |
+| `iconPosition`    | `'left'` \| `'right'`                                                | `'left'`        | Icon position                           |
+| `iconSize`        | `'small'` \| `'medium'` \| `'large'`                                 | `'medium'`      | Icon size                               |
+| `iconBgColor`     | `string`                                                             | `'transparent'` | Icon background color                   |
+| `size`            | `'small'` \| `'medium'` \| `'large'`                                 | `'medium'`      | Button size                             |
+| `tooltipText`     | `string`                                                             | `''`            | Tooltip text shown on click             |
+| `tooltipPosition` | `'top'` \| `'bottom'` \| `'left'` \| `'right'`                       | `'top'`         | Tooltip position                        |
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### 🛠 Example Usage
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+```tsx
+import { Send, Delete } from '@mui/icons-material';
+import CustomButton from './components/custom-button';
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+<CustomButton
+  bgColor="primary"
+  buttonText="Send"
+  icon={<Send />}
+  iconPosition="right"
+  iconSize="small"
+  size="large"
+  tooltipText="Send message"
+  tooltipPosition="top"
+/>
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+<CustomButton
+  bgColor="warning"
+  buttonText="Delete"
+  icon={<Delete />}
+  iconPosition="left"
+  iconSize="large"
+  tooltipText="Delete item"
+  tooltipPosition="right"
+/>
